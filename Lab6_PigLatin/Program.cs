@@ -42,13 +42,15 @@ namespace Lab6_PigLatin
                 {
                     //Use of SubString method to cut the first part of the word that does not contain vowels out, and append it to end of the word.
                     string subString = input.Substring(0, index);
-                    string subString2 = input.Substring(0, index);
-                    Console.WriteLine("Vowel is NOT NOT NOT in the first position!\n\n\n");
-                    Console.WriteLine(input + subString);
+                   
+                    // Console.WriteLine("Vowel is NOT in the first position!\n\n\n");
+
+                    //Concatenate user input with substring of first consonants.
                     string fullString = input + subString;
-                    Console.WriteLine(fullString);
+      
+                    //Removing all consonants before first letter.
                     string correctString = fullString.Remove(0, index);
-                    Console.WriteLine(correctString);
+                    //Console.WriteLine(correctString);
                     Console.WriteLine(correctString + CONSONANTSTARTEXT);
                     
 
