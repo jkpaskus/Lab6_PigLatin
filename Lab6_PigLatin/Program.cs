@@ -24,11 +24,8 @@ namespace Lab6_PigLatin
 
                 //Read input.  Find index of first vowel.
                 input = Console.ReadLine().ToLower();
-
                 int index = input.IndexOfAny(new char[] { 'a', 'e', 'i', 'o', 'u' });
            
-                //Console.WriteLine(index);
-
                 //if statment works on words that have vowel in it.
                 if (index != -1)
                 {
@@ -53,7 +50,7 @@ namespace Lab6_PigLatin
 
                         //Removing all consonants before first letter.
                         string correctString = fullString.Remove(0, index);
-                        //Console.WriteLine(correctString);
+                        //Final line concatenates the correct result with suffix.
                         Console.WriteLine(correctString + CONSONANTSTARTEXT);
 
 
