@@ -11,7 +11,6 @@ namespace Lab6_PigLatin
         static void Main(string[] args)
         {
             //Declare variables.
-            string input;
             const string VOWELSTARTEXT = "way";
             const string CONSONANTSTARTEXT = "ay";
             bool run = true;
@@ -20,14 +19,22 @@ namespace Lab6_PigLatin
             {
                 //Display titles.
                 Console.WriteLine("Welcome to the Pig Latin Translator!\n\n");
-                Console.Write("Enter a word to be translated: ");
+                //Console.Write("Enter a word to be translated: ");
 
-                //Read input.  Find index of first vowel.
-                input = Console.ReadLine().ToLower();
+                ////Read input.  Find index of first vowel.
+
+                //Use GetInput method.
+                string input = GetInput();
+
+
+                //input = Console.ReadLine().ToLower();
+             
                 int index = input.IndexOfAny(new char[] { 'a', 'e', 'i', 'o', 'u' });
-           
-                //if statment works on words that have vowel in it.
-                if (index != -1)
+
+                              //Console.WriteLine(index);
+             
+                  //if statment works on words that have vowel in it.
+                  if (index != -1)
                 {
                     //Console.WriteLine(input);
                     Console.WriteLine("\nHi buddy, there is a vowel in the word you entered");
@@ -50,8 +57,9 @@ namespace Lab6_PigLatin
 
                         //Removing all consonants before first letter.
                         string correctString = fullString.Remove(0, index);
-                        //Final line concatenates the correct result with suffix.
-                        Console.WriteLine(correctString + CONSONANTSTARTEXT);
+                             //Console.WriteLine(correctString);
+                             //Final line concatenates the correct result with suffix.
+                              Console.WriteLine(correctString + CONSONANTSTARTEXT);
 
 
 
@@ -78,11 +86,25 @@ namespace Lab6_PigLatin
             } while (run);
 
 
-
-
-
-       
-
         }
+
+        public static string GetInput()
+        {
+            while (true)
+            {
+                Console.WriteLine("Enter a word to be translated: ");
+
+                //Read input.  Find index of first vowel.
+                string input = Console.ReadLine().ToLower();
+                if ((string.IsNullOrEmpty(input)) || (string.IsNullOrWhiteSpace(input)))
+                {
+                    Console.WriteLine("Please enter a valid word!");
+                }
+                else
+                    return input;
+            }
+        }
+
+
     }
 }
